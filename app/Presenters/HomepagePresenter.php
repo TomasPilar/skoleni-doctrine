@@ -29,22 +29,16 @@ final class HomepagePresenter extends BasePresenter
 
 	public function renderDefault(): void
 	{
-	    $metadata = new Metadata('Super boty', 'Popis produktu');
-	    $picture = new Picture(500, '/var/www/image.jpg');
-	    $brand = new Brand('Značka');
-	    $category = new Category('Boty');
-	    
-	    $product = new Product('Boty Nike', 300, $metadata, [$picture], $brand, [$category]);
-
-        dump($product);
-
-	    $this->productRepository->save($product);
-
-        $product->setPrice(130);
-
-	    $this->productRepository->save($product);
-
-        dump($product);
+        $products = $this->productRepository->findAll();
+        foreach ($products as $product) {
+            dump($product);
+            //if ($product->getPictures()->count() > 0) {
+            //    foreach ($product->getPictures() as $picture) {
+            //        dump($picture);
+            //    }
+            //}
+            dump('-------');
+        }
 
 		die;
 	}

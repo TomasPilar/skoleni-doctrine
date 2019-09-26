@@ -68,6 +68,69 @@ class Product
     }
 
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+
+    /**
+     * @return Metadata
+     */
+    public function getMetadata(): Metadata
+    {
+        return $this->metadata;
+    }
+
+
+    /**
+     * @return Picture[]|Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+
+    /**
+     * @return Brand
+     */
+    public function getBrand(): Brand
+    {
+        return $this->brand;
+    }
+
+
+    /**
+     * @return Category[]|Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+
     public function setPrice(float $price): void
     {
         $this->price = $price;
