@@ -32,4 +32,10 @@ class Category
      */
     private $products;
 
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
 }

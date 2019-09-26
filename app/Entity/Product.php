@@ -56,4 +56,15 @@ class Product
      */
     private $categories;
 
+
+    public function __construct(string $name, float $price, Metadata $metadata, $pictures, Brand $brand, $categories)
+    {
+        $this->name = $name;
+        $this->price = $price;
+        $this->metadata = $metadata;
+        $this->pictures = $pictures;
+        $this->brand = $brand;
+        $this->categories = $categories;
+    }
+
 }

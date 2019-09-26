@@ -38,4 +38,11 @@ class Picture
      */
     private $product;
 
+
+    public function __construct(int $size, string $path)
+    {
+        $this->size = $size;
+        $this->path = $path;
+    }
+
 }

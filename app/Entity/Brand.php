@@ -31,4 +31,10 @@ class Brand
      */
     private $product;
 
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
 }
