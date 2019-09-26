@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,5 +30,29 @@ class Product
      * @var float
      */
     private $price;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Metadata")
+     * @var Metadata
+     */
+    private $metadata;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="product")
+     * @var Picture[]|Collection
+     */
+    private $pictures;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Brand", inversedBy="product")
+     * @var Brand
+     */
+    private $brand;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="products")
+     * @var Category[]|Collection
+     */
+    private $categories;
 
 }

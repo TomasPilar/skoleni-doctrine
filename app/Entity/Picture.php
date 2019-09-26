@@ -32,4 +32,10 @@ class Picture
      */
     private $path;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="pictures")
+     * @var Product
+     */
+    private $product;
+
 }

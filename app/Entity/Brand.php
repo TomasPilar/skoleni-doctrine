@@ -25,4 +25,10 @@ class Brand
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="brand")
+     * @var Product[]|Collection
+     */
+    private $product;
+
 }

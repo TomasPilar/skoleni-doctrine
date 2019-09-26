@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,5 +25,11 @@ class Category
      * @var string
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Product", mappedBy="categories")
+     * @var Product[]|Collection
+     */
+    private $products;
 
 }
