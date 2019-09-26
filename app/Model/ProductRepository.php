@@ -30,6 +30,19 @@ class ProductRepository
     }
 
 
+    public function findById(int $id): ?Product
+    {
+        //return $this->entityManager->getRepository(Product::class)
+        //    ->find($id);
+        
+        return $this->entityManager->createQuery(
+            'SELECT p FROM App\Entity\Product p WHERE p.id = :id'
+        )
+            ->setParameters(['id' => $id])
+            ->getSingleResult();
+    }
+
+
     /**
      * @return Product[]
      */
@@ -74,7 +87,7 @@ class ProductRepository
 
     public function update(): void
     {
-        $product = $this->entityManager->getRepository(Product::class)->find(1);
+        $product = $this->entityManager->getRepository(Product::class)->find(2);
         
         dump($product);
         
@@ -83,7 +96,7 @@ class ProductRepository
         ')
             ->setParameters([
                 'newPrice' => 500,
-                'productId' => 1
+                'productId' => 2
             ])
             ->getResult();
         
