@@ -32,26 +32,26 @@ class Product
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity="Metadata")
+     * @ORM\OneToOne(targetEntity="Metadata", cascade={"persist"})
      * @var Metadata
      */
     private $metadata;
 
     /**
-     * @ORM\OneToMany(targetEntity="Picture", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="product", cascade={"persist"})
      * @var Picture[]|Collection
      */
     private $pictures;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Brand", inversedBy="product")
+     * @ORM\ManyToOne(targetEntity="Brand", inversedBy="product", cascade={"persist"})
      * @ORM\JoinColumn(nullable=FALSE)
      * @var Brand
      */
     private $brand;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="products")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="products", cascade={"persist"})
      * @var Category[]|Collection
      */
     private $categories;
@@ -65,6 +65,12 @@ class Product
         $this->pictures = $pictures;
         $this->brand = $brand;
         $this->categories = $categories;
+    }
+
+
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 
 }

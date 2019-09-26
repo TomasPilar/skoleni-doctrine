@@ -29,16 +29,23 @@ final class HomepagePresenter extends BasePresenter
 
 	public function renderDefault(): void
 	{
-	    $metadata = new Metadata('Super krém', 'Popis produktu');
+	    $metadata = new Metadata('Super boty', 'Popis produktu');
 	    $picture = new Picture(500, '/var/www/image.jpg');
 	    $brand = new Brand('Značka');
-	    $category = new Category('Krémy');
+	    $category = new Category('Boty');
 	    
-	    $product = new Product('Nivea krém', 120, $metadata, [$picture], $brand, [$category]);
-	    
+	    $product = new Product('Boty Nike', 300, $metadata, [$picture], $brand, [$category]);
+
+        dump($product);
+
 	    $this->productRepository->save($product);
 
-	    dump(1);
+        $product->setPrice(130);
+
+	    $this->productRepository->save($product);
+
+        dump($product);
+
 		die;
 	}
 }
