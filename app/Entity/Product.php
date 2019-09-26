@@ -45,6 +45,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="Brand", inversedBy="product")
+     * @ORM\JoinColumn(nullable=FALSE)
      * @var Brand
      */
     private $brand;
