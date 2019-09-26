@@ -29,7 +29,7 @@ final class HomepagePresenter extends BasePresenter
 
 	public function renderDefault(): void
 	{
-        $this->productRepository->update();
+        $this->productRepository->findAll();
 
 		die;
 	}

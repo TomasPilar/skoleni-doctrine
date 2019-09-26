@@ -38,7 +38,7 @@ class Product
     private $metadata;
 
     /**
-     * @ORM\OneToMany(targetEntity="Picture", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="product", cascade={"persist", "remove"})
      * @var Picture[]|Collection
      */
     private $pictures;

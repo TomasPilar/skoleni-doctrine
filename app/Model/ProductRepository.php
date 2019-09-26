@@ -57,6 +57,18 @@ class ProductRepository
                 'productName' => 'nivea krém'
             ])
             ->getResult();
+
+        return $this->entityManager->createQueryBuilder()
+            ->select('p, b')
+            ->from(Product::class, 'p')
+            ->innerJoin('p.brand', 'b')
+            ->where('LOWER(p.name) = :productName')
+            ->orderBy('p.name', 'ASC')
+            ->setParameters([
+                'productName' => 'nivea krém'
+            ])
+            ->getQuery()
+            ->getResult();
     }
 
 
@@ -75,6 +87,24 @@ class ProductRepository
             ])
             ->getResult();
         
+        dump($product);die;
+    }
+
+
+    public function delete(): void
+    {
+        $product = $this->entityManager->getRepository(Product::class)->find(1);
+
+        dump($product);
+
+        $this->entityManager->createQuery('
+            DELETE App\Entity\Product p WHERE p.id = :productId
+        ')
+            ->setParameters([
+                'productId' => 1
+            ])
+            ->getResult();
+
         dump($product);die;
     }
 
