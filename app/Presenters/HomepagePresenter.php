@@ -29,16 +29,7 @@ final class HomepagePresenter extends BasePresenter
 
 	public function renderDefault(): void
 	{
-        $products = $this->productRepository->findAll();
-        foreach ($products as $product) {
-            dump($product);
-            //if ($product->getPictures()->count() > 0) {
-            //    foreach ($product->getPictures() as $picture) {
-            //        dump($picture);
-            //    }
-            //}
-            dump('-------');
-        }
+        $this->productRepository->update();
 
 		die;
 	}

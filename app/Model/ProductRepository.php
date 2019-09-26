@@ -46,17 +46,36 @@ class ProductRepository
         //    ])
         //    ->getArrayResult();
 
-        //return $this->entityManager->createQuery("
-        //    SELECT p, b
-        //    FROM App\Entity\Product p
-        //    INNER JOIN p.brand b
-        //    WHERE LOWER(p.name) = :productName
-        //    ORDER BY p.name ASC
-        //")
-        //    ->setParameters([
-        //        'productName' => 'nivea krém'
-        //    ])
-        //    ->getResult();
+        return $this->entityManager->createQuery("
+            SELECT p, b
+            FROM App\Entity\Product p
+            INNER JOIN p.brand b
+            WHERE LOWER(p.name) = :productName
+            ORDER BY p.name ASC
+        ")
+            ->setParameters([
+                'productName' => 'nivea krém'
+            ])
+            ->getResult();
+    }
+
+
+    public function update(): void
+    {
+        $product = $this->entityManager->getRepository(Product::class)->find(1);
+        
+        dump($product);
+        
+        $this->entityManager->createQuery('
+            UPDATE App\Entity\Product p SET p.price = :newPrice WHERE p.id = :productId
+        ')
+            ->setParameters([
+                'newPrice' => 500,
+                'productId' => 1
+            ])
+            ->getResult();
+        
+        dump($product);die;
     }
 
 }
