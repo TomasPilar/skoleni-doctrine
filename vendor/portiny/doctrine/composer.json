@@ -1,0 +1,31 @@
+{
+	"name": "portiny/doctrine",
+	"description": "Lightweight Doctrine integration extension for Nette framework.",
+	"keywords": ["php", "nette", "portiny", "doctrine 2", "orm"],
+	"license": ["MIT"],
+	"authors": [
+		{ "name": "Tomáš Pilař", "email": "email@tomaspilar.cz", "homepage": "https://www.tomaspilar.cz/" }
+	],
+	"require": {
+		"php": ">=7.1",
+		"doctrine/orm": "^2.6",
+		"nette/caching": "^3.0",
+		"nette/di": "^3.0",
+		"nette/utils": "^3.0"
+	},
+	"require-dev": {
+		"nette/bootstrap": "^3.0",
+		"phpunit/phpunit": "^7.5 || ^8.3",
+		"tracy/tracy": "^2.6"
+	},
+	"autoload": {
+		"psr-4": {
+			"Portiny\\Doctrine\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Portiny\\Doctrine\\Tests\\": "tests"
+		}
+	}
+}

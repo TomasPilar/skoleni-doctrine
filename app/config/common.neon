@@ -1,0 +1,41 @@
+extensions:
+	console: Portiny\Console\Adapter\Nette\DI\ConsoleExtension
+	doctrine: Portiny\Doctrine\Adapter\Nette\DI\DoctrineExtension
+
+doctrine:
+	debug: %debugMode%
+	connection:
+		driver: pdo_pgsql
+		host: localhost
+		port: 5432
+		user: postgres
+		password: postgres
+		dbname: doctrine_skoleni
+	sourceDir: %appDir%/Entity
+
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=test'
+	user:
+	password:
+	options:
+		lazy: yes
+
+
+services:
+	- App\Model\UserManager
+	- App\Forms\FormFactory
+	- App\Forms\SignInFormFactory
+	- App\Forms\SignUpFormFactory
+	router: App\Router\RouterFactory::createRouter
