@@ -57,6 +57,8 @@ class OrderRepository
         $this->entityManager->persist($order);
         $this->entityManager->flush();
 
+        $this->entityManager->getEventManager()->addEventSubscriber(new OrderVariableSymbolCalculator());
+
         return $order;
     }
 

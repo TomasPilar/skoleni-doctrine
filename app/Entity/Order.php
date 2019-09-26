@@ -57,12 +57,9 @@ class Order
     }
 
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setVariableSymbol(): void
+    public function setVariableSymbol(string $variableSymbol): void
     {
-        $this->variableSymbol = date('ymdhis');
+        $this->variableSymbol = $variableSymbol;
     }
 
 

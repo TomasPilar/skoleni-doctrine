@@ -43,6 +43,7 @@ services:
 	- App\Model\ProductRepository
 	- App\Model\OrderGenerator
 	- App\Model\OrderRepository
+	- App\Model\OrderVariableSymbolCalculator
 	- App\Model\UserManager
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
