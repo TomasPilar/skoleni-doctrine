@@ -99,10 +99,10 @@ class DoctrineExtension extends CompilerExtension
 			'metadata' => Expect::array()->default([]),
 			'functions' => Expect::array()->default([]),
 			// caches
-			'metadataCache' => Expect::string('default'),
-			'queryCache' => Expect::string('default'),
-			'resultCache' => Expect::string('default'),
-			'hydrationCache' => Expect::string('default'),
+			'metadataCache' => Expect::anyOf(Expect::string('default'), Expect::bool()),
+			'queryCache' => Expect::anyOf(Expect::string('default'), Expect::bool()),
+			'resultCache' => Expect::anyOf(Expect::string('default'), Expect::bool()),
+			'hydrationCache' => Expect::anyOf(Expect::string('default'), Expect::bool()),
 			'secondLevelCache' => Expect::structure([
 				'enabled' => Expect::bool(false),
 				'factoryClass' => Expect::string(DefaultCacheFactory::class),
