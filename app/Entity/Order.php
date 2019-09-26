@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="`order`")
  * @ORM\Cache(usage="NONSTRICT_READ_WRITE", region="order")
+ * @ORM\HasLifecycleCallbacks
  */
 class Order
 {
@@ -38,9 +39,8 @@ class Order
     private $products;
 
 
-    public function __construct(string $variableSymbol)
+    public function __construct()
     {
-        $this->variableSymbol = $variableSymbol;
         $this->products = new ArrayCollection;
     }
 
@@ -54,6 +54,15 @@ class Order
     public function getVariableSymbol(): string
     {
         return $this->variableSymbol;
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setVariableSymbol(): void
+    {
+        $this->variableSymbol = date('ymdhis');
     }
 
 

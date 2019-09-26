@@ -49,4 +49,15 @@ class OrderRepository
         return $orders;
     }
 
+
+    public function create(): Order
+    {
+        $order = new Order();
+
+        $this->entityManager->persist($order);
+        $this->entityManager->flush();
+
+        return $order;
+    }
+
 }
