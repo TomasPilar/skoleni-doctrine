@@ -12,7 +12,12 @@ doctrine:
 		password: postgres
 		dbname: doctrine_skoleni
 	sourceDir: %appDir%/Entity
-
+	metadataCache: FALSE
+	queryCache: FALSE
+	resultCache: FALSE
+	hydrationCache: FALSE
+	secondLevelCache:
+		enabled: FALSE
 
 
 application:
