@@ -43,6 +43,12 @@ class Order
     }
 
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+
     public function getVariableSymbol(): string
     {
         return $this->variableSymbol;
