@@ -44,4 +44,10 @@ class OrderProduct
         return $this->name;
     }
 
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
+    }
+
 }

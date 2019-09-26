@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,7 +30,7 @@ class Order
     private $variableSymbol;
 
     /**
-     * @ORM\OneToMany(targetEntity="OrderProduct", mappedBy="order")
+     * @ORM\OneToMany(targetEntity="OrderProduct", mappedBy="order", cascade={"persist"})
      * @var OrderProduct[]|Collection
      */
     private $products;
@@ -38,6 +39,7 @@ class Order
     public function __construct(string $variableSymbol)
     {
         $this->variableSymbol = $variableSymbol;
+        $this->products = new ArrayCollection;
     }
 
 

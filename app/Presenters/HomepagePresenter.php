@@ -10,6 +10,7 @@ use App\Entity\Category;
 use App\Entity\Metadata;
 use App\Entity\Picture;
 use App\Entity\Product;
+use App\Model\OrderGenerator;
 use App\Model\ProductRepository;
 
 
@@ -17,24 +18,20 @@ final class HomepagePresenter extends BasePresenter
 {
 
     /**
-     * @var ProductRepository
+     * @var OrderGenerator
      */
-    private $productRepository;
+    private $orderGenerator;
 
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(OrderGenerator $orderGenerator)
     {
-        $this->productRepository = $productRepository;
+        $this->orderGenerator = $orderGenerator;
     }
 
-	public function renderDefault(): void
-	{
-        $product = $this->productRepository->findById(2);
-        dump($product);
 
-        $this->productRepository->update();
+    public function renderDefault()
+    {
+        $this->orderGenerator->generate();
 
-
-		die;
-	}
+    }
 }
