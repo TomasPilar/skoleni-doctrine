@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="`order`")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE", region="order")
  */
 class Order
 {
@@ -31,6 +32,7 @@ class Order
 
     /**
      * @ORM\OneToMany(targetEntity="OrderProduct", mappedBy="order", cascade={"persist"})
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      * @var OrderProduct[]|Collection
      */
     private $products;
