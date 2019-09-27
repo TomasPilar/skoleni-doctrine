@@ -30,6 +30,12 @@ class Order
      * @var string
      */
     private $variableSymbol;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     */
+    private $locale2;
 
     /**
      * @ORM\OneToMany(targetEntity="OrderProduct", mappedBy="order", cascade={"persist"})

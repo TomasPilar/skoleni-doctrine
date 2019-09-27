@@ -44,6 +44,7 @@ services:
 	- App\Model\OrderGenerator
 	- App\Model\OrderRepository
 	- App\Model\OrderVariableSymbolCalculator
+	- App\Model\LocaleFilter
 	- App\Model\UserManager
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory

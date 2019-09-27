@@ -31,9 +31,6 @@ final class HomepagePresenter extends BasePresenter
 
     public function renderDefault()
     {
-        $this->orderRepository->create();
-        die;
-
         $this->template->setParameters([
             'orders' => $this->orderRepository->findAll()
         ]);
